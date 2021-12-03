@@ -1,4 +1,5 @@
 const Input = require('../utils/input');
+const logging = require('../utils/logging')();
 
 const input = Input('./day1/input.txt').asNumbersArray();
 
@@ -15,4 +16,4 @@ const result = input.reduce((acc, item, index, arr) => {
 }, 0);
 
 // Result 1266
-console.log('Result', result);
+logging.result(result);

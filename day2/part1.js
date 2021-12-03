@@ -1,6 +1,7 @@
 const Input = require('../utils/input');
+const logging = require('../utils/logging')();
 
-const input = Input('./day2/input.txt').asArray();
+const input = Input('./day2/input.txt').asTable();
 
 let horizontalPos = 0;
 let depth = 0;
@@ -22,12 +23,8 @@ input.forEach(([direction, value]) => {
 	calc[direction](newValue);
 });
 
-/*
-Horizontal position 1927
-Depth 1091
-Result 2102357
-*/
+const result = horizontalPos * depth;
 
-console.log('Horizontal position', horizontalPos);
-console.log('Depth', depth);
-console.log('Result', horizontalPos * depth);
+// Result 2102357
+logging.values({ horizontalPos, depth });
+logging.result(result);

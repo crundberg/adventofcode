@@ -1,4 +1,5 @@
 const Input = require('../utils/input');
+const logging = require('../utils/logging')();
 
 const input = Input('./day1/input.txt').asNumbersArray();
 
@@ -34,4 +35,4 @@ const result = Object.values(groupedData)
 	}, 0);
 
 // Result 1217
-console.log('Result', result);
+logging.result(result);
