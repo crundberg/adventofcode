@@ -2,6 +2,14 @@ const fs = require('fs');
 const logging = require('./logging')();
 
 const Input = (fileName, logInput) => {
+	const asString = () => {
+		const input = fs.readFileSync(fileName, 'utf8');
+
+		if (logInput) logging.input(input);
+
+		return input;
+	};
+
 	const asArray = () => {
 		const input = fs.readFileSync(fileName, 'utf8').split('\r\n');
 
@@ -32,6 +40,7 @@ const Input = (fileName, logInput) => {
 	};
 
 	return {
+		asString,
 		asArray,
 		asTable,
 		asNumbersArray,
