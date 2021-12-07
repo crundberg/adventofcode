@@ -2,8 +2,16 @@ const fs = require('fs');
 const logging = require('./logging')();
 
 const Input = (fileName, logInput) => {
-	const asString = () => {
+	const asSingleLine = () => {
 		const input = fs.readFileSync(fileName, 'utf8');
+
+		if (logInput) logging.input(input);
+
+		return input;
+	};
+
+	const asSingleLineNumbers = () => {
+		const input = fs.readFileSync(fileName, 'utf8').split(',').map(Number);
 
 		if (logInput) logging.input(input);
 
@@ -40,7 +48,8 @@ const Input = (fileName, logInput) => {
 	};
 
 	return {
-		asString,
+		asSingleLine,
+		asSingleLineNumbers,
 		asArray,
 		asTable,
 		asNumbersArray,

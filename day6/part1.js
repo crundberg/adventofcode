@@ -1,8 +1,7 @@
 const Input = require('../utils/input');
 const logging = require('../utils/logging')();
 
-const inputStr = Input('./day6/input.txt').asString();
-const input = inputStr.split(',').map(Number);
+const input = Input('./day6/input.txt').asSingleLineNumbers();
 
 let data = input;
 
